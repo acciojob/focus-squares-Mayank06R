@@ -1,18 +1,18 @@
 document.addEventListener("DOMContentLoaded", () => {
-    let squares = document.querySelectorAll(".focus-sq");
+    let squares = document.querySelectorAll(".square");
 
     squares.forEach((sq) => {
-        sq.addEventListener("mouseenter", () => {
+        sq.addEventListener("mouseenter", function () {
             squares.forEach((otherSq) => {
-                if (otherSq !== sq) {
-                    otherSq.style.backgroundColor = "#6F4E37"; // Coffee color
+                if (otherSq !== this) {
+                    otherSq.style.backgroundColor = "rgb(111, 78, 55)"; // Coffee color
                 }
             });
         });
 
-        sq.addEventListener("mouseleave", () => {
+        sq.addEventListener("mouseleave", function () {
             squares.forEach((otherSq) => {
-                otherSq.style.backgroundColor = "#E6E6FA"; // Lavender color
+                otherSq.style.backgroundColor = "rgb(230, 230, 250)"; // Lavender color
             });
         });
     });
