@@ -1,27 +1,19 @@
-document.addEventListener("DOMContentLoaded", function() {
-  const squares = document.querySelectorAll('.square');
-  
-  squares.forEach(square => {
-    square.addEventListener('mouseenter', function() {
-      squares.forEach(sq => {
-        if (sq !== square) {
-          sq.style.backgroundColor = '#6F4E37'; // Coffee color
-        }
-      });
-      logBackgroundColors(); // Log background colors for debugging
-    });
+document.addEventListener("DOMContentLoaded", () => {
+    let squares = document.querySelectorAll(".focus-sq");
 
-    square.addEventListener('mouseleave', function() {
-      squares.forEach(sq => {
-        sq.style.backgroundColor = '#E6E6FA'; // Lavender color
-      });
-      logBackgroundColors(); // Log background colors for debugging
-    });
-  });
+    squares.forEach((sq) => {
+        sq.addEventListener("mouseenter", () => {
+            squares.forEach((otherSq) => {
+                if (otherSq !== sq) {
+                    otherSq.style.backgroundColor = "#6F4E37"; // Coffee color
+                }
+            });
+        });
 
-  function logBackgroundColors() {
-    squares.forEach(sq => {
-      console.log(`${sq.id} background color: ${window.getComputedStyle(sq).backgroundColor}`);
+        sq.addEventListener("mouseleave", () => {
+            squares.forEach((otherSq) => {
+                otherSq.style.backgroundColor = "#E6E6FA"; // Lavender color
+            });
+        });
     });
-  }
 });
